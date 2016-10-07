@@ -27,6 +27,21 @@ public class MainActivity extends AppCompatActivity {
 			}
 		});
 
+		findViewById(R.id.imageViewBrowser).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+
+				openWebPage("http://www.smktelkom-mlg.sch.id/");
+			}
+		});
+
+	}
+
+	private void openWebPage(String url) {
+		Uri webppage = Uri.parse(url);
+		Intent intent = new Intent(Intent.ACTION_VIEW, webppage);
+		if (intent.resolveActivity(getPackageManager()) != null)
+			startActivity(intent);
 	}
 
 	private void composeSmsMessage(String message) {
